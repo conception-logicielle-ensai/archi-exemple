@@ -1,3 +1,5 @@
+[MASTER]
+init-hook='import sys; sys.path.append(".")'
 [MESSAGES CONTROL]
 # Activer ou désactiver certains types de messages
 disable = 
