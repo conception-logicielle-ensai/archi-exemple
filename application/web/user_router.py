@@ -15,7 +15,7 @@ def connect(user_dto: UserDTO):
     user_service = UserService.of_context()
     try:
         user = user_service.get_user(user_dto=user_dto)
-        return user_service.peut_se_connecter(user=user)
+        return {"message": f"User {user.username} can connect as admin."} if user_service.peut_se_connecter(user=user) else {"message": f"User {user.username} cannotconnect as admin."}
     except ValueError as e:
         raise HTTPException(404,str(e)) from e
     
