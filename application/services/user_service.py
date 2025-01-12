@@ -8,7 +8,6 @@ class UserService:
         self.user_dao = user_dao
     def peut_se_connecter(self,user: User):
         """Vérifie si l'utilisateur peut se connecter (uniquement pour les administrateurs)."""
-        print(user)
         if user.is_admin():
             return {"message": f"User {user.username} can connect as admin."}
         return {"message": f"User {user.username} cannotconnect as admin."}
