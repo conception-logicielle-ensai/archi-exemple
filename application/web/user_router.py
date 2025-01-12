@@ -17,5 +17,5 @@ def connect(user_dto: UserDTO):
         user = user_service.get_user(user_dto=user_dto)
         return user_service.peut_se_connecter(user=user)
     except ValueError as e:
-        raise HTTPException(404,str(e))
+        raise HTTPException(404,str(e)) from e
     
