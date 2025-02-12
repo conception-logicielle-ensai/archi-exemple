@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 
-from backend.business_object.user import User
-from backend.dao.user_dao import UserDAO
-from backend.services.user_service import UserService
+from business_object.user import User
+from dao.user_dao import UserDAO
+from services.user_service import UserService
 
 
 class TestUserService(TestCase):

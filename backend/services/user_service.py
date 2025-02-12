@@ -1,6 +1,6 @@
-from backend.business_object.user import User
-from backend.dao.user_dao import UserDAO
-from backend.dto.user_dto import UserDTO
+from business_object.user import User
+from dao.user_dao import UserDAO
+from dto.user_dto import UserDTO
 
 
 class UserService:
