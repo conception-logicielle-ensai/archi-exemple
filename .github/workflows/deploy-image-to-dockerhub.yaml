@@ -20,13 +20,13 @@ jobs:
         uses: docker/build-push-action@v3.1.1
         with:
           push: true
-          context: .
-          file: ./backend/Dockerfile
+          context: backend
+          file: Dockerfile
           tags: ragatzino/backend-demo-conception-logicielle:latest
       - name: Build and push frontend
         uses: docker/build-push-action@v3.1.1
         with:
           push: true
-          context: .
-          file: ./frontend/Dockerfile
+          context: frontend
+          file: Dockerfile
           tags: ragatzino/frontend-demo-conception-logicielle:latest
