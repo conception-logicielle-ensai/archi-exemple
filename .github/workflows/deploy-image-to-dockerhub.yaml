@@ -21,12 +21,12 @@ jobs:
         with:
           push: true
           context: backend
-          file: Dockerfile
+          file: ./backend/Dockerfile
           tags: ragatzino/backend-demo-conception-logicielle:latest
       - name: Build and push frontend
         uses: docker/build-push-action@v3.1.1
         with:
           push: true
           context: frontend
-          file: Dockerfile
+          file: ./frontend/Dockerfile
           tags: ragatzino/frontend-demo-conception-logicielle:latest
