@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from backend.business_object.user import User
+from business_object.user import User
 
 
 class UserDTO(BaseModel):

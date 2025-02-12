@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
-from backend.dao.user_dao import UserDAO
-from backend.dto.user_dto import UserDTO
-from backend.services.user_service import UserService
+from dao.user_dao import UserDAO
+from dto.user_dto import UserDTO
+from services.user_service import UserService
 
 user_router = APIRouter()
 

@@ -1,7 +1,7 @@
 import sqlite3
 from typing import Literal, Optional
 
-from backend.utils.singleton import Singleton
+from utils.singleton import Singleton
 
 
 class DatabaseConnector(metaclass=Singleton):

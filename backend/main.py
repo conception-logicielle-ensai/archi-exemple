@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from backend.dao.configuration.database_connector import DatabaseConnector
-from backend.web.user_router import user_router
+from dao.configuration.database_connector import DatabaseConnector
+from web.user_router import user_router
 
 app = FastAPI()
 

@@ -1,4 +1,4 @@
-from backend.dao.configuration.database_connector import DatabaseConnector
+from dao.configuration.database_connector import DatabaseConnector
 
 
 class UserDAO:
