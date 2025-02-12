@@ -1,10 +1,11 @@
+from typing import List, Optional
 from fastapi import APIRouter, HTTPException
 
 from dao.user_dao import UserDAO
 from dto.user_dto import UserDTO
 from services.user_service import UserService
 
-user_router = APIRouter()
+user_router = APIRouter(prefix="/users",tags=["users"])
 
 
 @user_router.post("/connect")
@@ -23,3 +24,12 @@ def connect(user_dto: UserDTO):
         )
     except ValueError as e:
         raise HTTPException(404, str(e)) from e
+@user_router.get("/")
+def get_users():
+    user_service = UserService.of_context()
+    return user_service.get_users()
+
+@user_router.post("/")
+def create_user(username:str,roles:Optional[List[str]]):
+    user_service=UserService.of_context()
+    return user_service.save_user(name=username,roles=roles)

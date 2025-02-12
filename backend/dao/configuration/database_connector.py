@@ -42,10 +42,10 @@ class DatabaseConnector(metaclass=Singleton):
             cursor.execute(
                 """CREATE TABLE IF NOT EXISTS users (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        username TEXT NOT NULL
+                        username TEXT NOT NULL UNIQUE
                     );"""
             )
-            cursor.execute("""DROP TABLE IF EXISTS roles_users;""")
+            cursor.execute("""DROP TABLE IF EXISTS roles_user;""")
             cursor.execute(
                 """CREATE TABLE IF NOT EXISTS roles_user (
                         user_id INTEGER NOT NULL,
