@@ -1,4 +1,4 @@
-ame: Dockerize
+name: Dockerize
 
 on: push
 
