@@ -2,10 +2,15 @@ from fastapi import FastAPI
 
 from dao.configuration.database_connector import DatabaseConnector
 from web.user_router import user_router
+from config.app_config import add_cors_middleware
 
 app = FastAPI()
 
 app.include_router(user_router)
+
+# Configuration CORS
+add_cors_middleware(app)
+
 if __name__ == "__main__":
     import uvicorn
 

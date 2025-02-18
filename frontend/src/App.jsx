@@ -1,19 +1,31 @@
-import UserPanel from "./components/UserPanel.jsx"
-import './App.css'
-import { useState } from "react"
+import "./App.css";
+import UserList from "./components/UserList";
+import AddUserForm from "./components/AddUserForm";
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 function App() {
-  const [fetchUser,setFetchUsers] = useState(false)
   return (
-    <>
-      <h1>Application Frontend</h1>
-      <div className="gridmiecran" id="fetchUser">
-      <button onClick={() => setFetchUsers(true)} disabled={fetchUser} > Recupérer les utilisateurs </button>
+    <Router>
+      <div className="container">
+        <h1>Gestion des Utilisateurs</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/users/">Liste des utilisateurs</Link>
+            </li>
+            <li>
+              <Link to="/users/add/">Ajouter un utilisateur</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/users/" element={<UserList />} />
+          <Route path="/users/add/" element={<AddUserForm />} />
+        </Routes>
       </div>
-      <div className="gridmiecran">
-        {fetchUser === true ? <UserPanel/> : <></>}
-      </div>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
