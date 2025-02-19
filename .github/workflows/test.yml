@@ -17,7 +17,9 @@ jobs:
     - name: Install Deps
       run: |
         python -m pip install --upgrade pip
-        python -m pip install -r backend/requirements.txt  # Assurez-vous que requirements.txt est dans le répertoire backend
+        python -m pip install -r backend/requirements.txt
     - name: Run tests
       run: |
-        python -m unittest discover backend/tests/  # Les tests sont sous backend/tests/
+        export PYTHONPATH=$(pwd)/backend 
+        python -m unittest discover tests/
+      working-directory: backend
