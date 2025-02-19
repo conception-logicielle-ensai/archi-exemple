@@ -1,4 +1,5 @@
 from typing import Optional
+
 from business_object.user import User
 from dao.user_dao import UserDAO
 from dto.user_dto import UserDTO
@@ -16,10 +17,13 @@ class UserService:
         user = user_dto.to_user()
         updated_user = self.user_dao.get_user_by_username(user.username)
         return updated_user
+
     def get_users(self):
         return self.user_dao.get_users()
-    def save_user(self,name:str,roles:Optional[tuple[str]]):
-        return self.user_dao.save_user(name=name,roles=roles)
+
+    def save_user(self, name: str, roles: Optional[tuple[str]]):
+        return self.user_dao.save_user(name=name, roles=roles)
+
     @staticmethod
     def of_context():
         user_dao = UserDAO.of_context()
