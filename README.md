@@ -1,19 +1,53 @@
-# Archi exemple
+# Archi Exemple
 
-**Application Backend**: `./backend`
-Bilan des deux premières sessions de conception logicielle dans un projet
+Ce projet illustre les concepts abordés en conception logicielle, avec une application **backend** et **frontend**, ainsi que son **déploiement sur le cloud**.
 
+## Applications
+
+### Backend (`./backend`)
+Bilan des deux premières sessions de conception logicielle :
 - Git
-- Architecture applicative (couches, IOC, SRP)
-- Lint
+- Architecture applicative (couches, IoC, SRP)
+- Linting et qualité du code
 - Tests unitaires
 - CI/CD
-- Design patterns & bonnes pratiques
+- Design patterns et bonnes pratiques
 
-**Application frontend** : `./frontend`
-Bilan du cours 6 de conception logicielle : creation d'une application frontend utilisant l'api
+### Frontend (`./frontend`)
+Bilan du cours 6 de conception logicielle :  
+Développement d’une application frontend qui consomme l’API backend.
 
+### Déploiement Cloud (`./kubernetes`)
+Contient les scripts Kubernetes nécessaires au déploiement de l’application.
 
-**Déploiement sur le cloud** : `./kubernetes`
+---
 
-Ensemble des scripts kubernetes pour le déploiement de l'application 
+## Lancer l'application en local avec Docker
+
+### 1. Lancer l'API backend
+Depuis la racine du projet, exécuter :
+```bash
+cd backend
+docker build -t backend-app .
+docker run -d --name backend-container -p 8000:8000 backend-app
+docker ps  # Vérifier que le conteneur tourne
+```
+L’API sera disponible à :  
+- `http://localhost:8000`  
+- Swagger UI : `http://localhost:8000/docs`
+
+---
+
+### 2. Lancer l'application frontend
+Depuis la racine du projet, exécuter :
+```bash
+cd frontend
+docker build --build-arg VITE_API_URL=http://localhost:8000 -t frontend-app .
+docker run -d --name frontend-container -p 8080:80 frontend-app
+docker ps  # Vérifier que le conteneur tourne
+```
+L’application web sera accessible à :  
+- `http://localhost:8080`
+
+#### Explication de `--build-arg VITE_API_URL=http://localhost:8000`
+Cette option permet de définir l’URL de l’API au moment de la construction de l’image frontend.

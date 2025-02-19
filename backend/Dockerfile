@@ -1,6 +1,14 @@
+# Utilisation de l'image officielle Python 3.10 comme base
 FROM python:3.10
+
+# Définition du répertoire de travail
 WORKDIR /code
-COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-COPY ../ /code/backend
-CMD ["python", "/code/backend/main.py"]
+
+# Copier tout le code du backend dans le conteneur
+COPY . /code/
+
+# Installation des dépendances sans mise en cache pour un build plus léger
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Commande pour démarrer l'application
+CMD ["python", "main.py"]
