@@ -10,10 +10,10 @@ function UserList() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await API.get("http://localhost:8000/users/");
+      const response = await API.get("/users/");
       setUsers(response.data);
     } catch (error) {
-      console.error("Erreur lors de la récupération des utilisateurs :", error);
+      alert("Erreur lors de la récupération des utilisateurs :", error);
     } finally {
       setLoading(false);
     }
