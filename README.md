@@ -1,5 +1,3 @@
-Voici ta description **corrigée et reformulée** sans emojis pour une meilleure clarté et fluidité.
-
 # Archi Exemple
 
 Ce projet illustre les concepts abordés en conception logicielle, avec une application **backend** et **frontend**, ainsi que son **déploiement sur le cloud**.
