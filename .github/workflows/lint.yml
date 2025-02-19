@@ -8,23 +8,56 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.11"]
+        node-version: ["18.x"]
     steps:
     - uses: actions/checkout@v3
+
+    # Configuration de Python
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install Pylint Black Flake8 Isort & dependencies
+
+    - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pylint black isort
+        pip install -r backend/requirements.txt
+        pip install pylint black isort flake8
+
+    # Linting Python
     - name: Linting with pylint
       run: |
-        pylint $(git ls-files '*.py') --fail-under 5
+        export PYTHONPATH=$(pwd)/backend
+        pylint backend/**/*.py --fail-under 5
+
+    # Vérification de formatage Python
     - name: Formatting checks isort
       run: |
         python -m isort --profile black --check backend
+
     - name: Formatting checks black
       run: |
         python -m black --check backend
+
+    # Configuration de Node.js pour le projet frontend
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install frontend dependencies
+      working-directory: frontend
+      run: |
+        npm install
+
+    # Vérification ESLint pour le frontend
+    - name: Run ESLint
+      working-directory: frontend
+      run: |
+        npm run lint
+
+    # Vérification Prettier pour le formatage du frontend
+    - name: Run Prettier
+      working-directory: frontend
+      run: |
+        npm run format:check

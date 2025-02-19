@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import UserCard from "./UserCard";
 import "../styles/UserList.css";
 import API from "../api/apiClient.js";

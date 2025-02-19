@@ -1,8 +1,7 @@
-from fastapi import FastAPI
-
-from dao.configuration.database_connector import DatabaseConnector
-from web.user_router import user_router
 from config.app_config import add_cors_middleware
+from dao.configuration.database_connector import DatabaseConnector
+from fastapi import FastAPI
+from web.user_router import user_router
 
 app = FastAPI()
 
