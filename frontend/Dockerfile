@@ -1,5 +1,4 @@
-# Étape 1 : Construction de l'application frontend avec Node.js
-FROM node:18-alpine AS builder
+FROM node:18-alpine
 
 WORKDIR /app
 
