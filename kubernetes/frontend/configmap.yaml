@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configuration-frontend
+data:
+  VITE_API_URL: https://backend-conception-logicielle.kube.sspcloud.fr
+  VITE_ENVIRONNEMENT: sspcloud-pd
