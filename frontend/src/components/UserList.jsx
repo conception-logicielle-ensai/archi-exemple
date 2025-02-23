@@ -24,9 +24,8 @@ function UserList() {
       <button onClick={fetchUsers}>Récupérer les utilisateurs</button>
       {loading && <p>Chargement...</p>}
       <div className="users-container">
-        {users.length >0 &&  users.map((user) => (
-          <UserCard key={user.id} user={user} />
-        ))}
+        {users.length > 0 &&
+          users.map((user) => <UserCard key={user.id} user={user} />)}
       </div>
     </div>
   );

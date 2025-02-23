@@ -26,7 +26,7 @@ function App() {
         </Routes>
       </div>
       <footer>
-        <Environnement/>
+        <Environnement />
       </footer>
     </Router>
   );
