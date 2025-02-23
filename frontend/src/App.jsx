@@ -4,6 +4,7 @@ import AddUserForm from "./components/AddUserForm";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
+import Environnement from "./components/Environnement";
 function App() {
   return (
     <Router>
@@ -24,6 +25,9 @@ function App() {
           <Route path="/users/add/" element={<AddUserForm />} />
         </Routes>
       </div>
+      <footer>
+        <Environnement/>
+      </footer>
     </Router>
   );
 }
