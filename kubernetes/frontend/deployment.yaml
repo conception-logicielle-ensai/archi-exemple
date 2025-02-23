@@ -20,6 +20,6 @@ spec:
               cpu: "300m"
           envFrom:
             - configMapRef:
-              name: configuration-frontend
+                name: configuration-frontend
           ports:
             - containerPort: 5173

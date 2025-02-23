@@ -42,12 +42,11 @@ L’API sera disponible à :
 Depuis la racine du projet, exécuter :
 ```bash
 cd frontend
-docker build --build-arg VITE_API_URL=http://localhost:8000 -t frontend-app .
-docker run -d --name frontend-container -p 8080:80 frontend-app
+docker build -t frontend-app .
+docker run -d -e VITE_API_URL=http://localhost:8000 --name frontend-container -p 8080:80 frontend-app
 docker ps  # Vérifier que le conteneur tourne
 ```
 L’application web sera accessible à :  
 - `http://localhost:8080`
 
-#### Explication de `--build-arg VITE_API_URL=http://localhost:8000`
-Cette option permet de définir l’URL de l’API au moment de la construction de l’image frontend.
+> L'option -e permet de définir des variable d'environnement au lancement d'une image docker
