@@ -20,6 +20,8 @@ Développement d’une application frontend qui consomme l’API backend.
 ### Déploiement Cloud (`./kubernetes`)
 Contient les scripts Kubernetes nécessaires au déploiement de l’application.
 
+- Un dossier frontend correspondant au frontend déployé sur le sspcloud : https://frontend-conception-logicielle.kub.sspcloud.fr/
+- Un dossier backend correspondant au backend déployé sur le sspcloud : https://backend-conception-logicielle.kub.sspcloud.fr/docs#/
 ---
 
 ## Lancer l'application en local avec Docker
