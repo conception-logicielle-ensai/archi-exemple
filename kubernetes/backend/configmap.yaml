@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: configuration-backend
 data:
-  hello: world
+  APP_TITLE: "UsersAPIEnsaixSSPCloud"
