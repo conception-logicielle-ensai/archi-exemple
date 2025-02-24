@@ -6,7 +6,7 @@ WORKDIR /code
 
 # Copier tout le code du backend dans le conteneur
 COPY . /code/
-
+ENV APP_TITLE=UserAPIEnsai
 # Installation des dépendances sans mise en cache pour un build plus léger
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 

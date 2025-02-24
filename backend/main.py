@@ -2,8 +2,9 @@ from config.app_config import add_cors_middleware
 from dao.configuration.database_connector import DatabaseConnector
 from fastapi import FastAPI
 from web.user_router import user_router
-
-app = FastAPI()
+import os 
+app_title= os.getenv("APP_TITLE","UserAPIEnsai")
+app = FastAPI(title=app_title)
 
 app.include_router(user_router)
 
