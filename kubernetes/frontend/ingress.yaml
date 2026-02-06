@@ -6,7 +6,7 @@ metadata:
     name: frontend
 spec:
   rules:
-    - host: frontend-conception-logicielle.kub.sspcloud.fr
+    - host: users-ensai.kub.sspcloud.fr
       http:
         paths:
           - pathType: Prefix

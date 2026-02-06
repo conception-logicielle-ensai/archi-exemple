@@ -6,7 +6,7 @@ metadata:
     name: backend
 spec:
   rules:
-    - host: api-user-ensai.kub.sspcloud.fr
+    - host: api-users-ensai.kub.sspcloud.fr
       http:
         paths:
           - pathType: Prefix

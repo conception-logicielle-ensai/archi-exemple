@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: configuration-frontend
 data:
-  VITE_API_URL: https://backend-conception-logicielle.kub.sspcloud.fr
+  VITE_API_URL: https://api-users-ensai.kub.sspcloud.fr
   VITE_ENVIRONNEMENT: sspcloud-pd
-  __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "frontend-conception-logicielle.kub.sspcloud.fr"
+  __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: "users-ensai.kub.sspcloud.fr"
