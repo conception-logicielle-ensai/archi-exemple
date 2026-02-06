@@ -18,7 +18,13 @@ class DatabaseConnector(metaclass=Singleton):
 
     def _connect_sqlite(self, db_name):
         try:
-            DatabaseConnector._connection = sqlite3.connect(db_name)
+            DatabaseConnector._connection = sqlite3.connect(
+                db_name,
+                timeout=30,
+                check_same_thread=False,
+            )
+            DatabaseConnector._connection.execute("PRAGMA journal_mode=WAL;")
+            DatabaseConnector._connection.execute("PRAGMA synchronous=NORMAL;")
         except sqlite3.Error as e:
             print(f"Erreur de connexion SQLite : {e}")
 
@@ -66,12 +72,12 @@ class DatabaseConnector(metaclass=Singleton):
                 "INSERT INTO roles_user (user_id, role) VALUES (?, ?)", (user_id, "dev")
             )
             connexion.commit()
+            # Insertion d'un utilisateur 'pasadmin'
+            cursor.execute("INSERT INTO users (username) VALUES (?)", ("pasadmin",))
             user_id = cursor.lastrowid
-            cursor.execute("INSERT INTO users (username) VALUES (?)", ("pasadm",))
             cursor.execute(
                 "INSERT INTO roles_user (user_id, role) VALUES (?, ?)", (user_id, "dev")
             )
-            # Commit des changements
             connexion.commit()
             self.close_connection()
 

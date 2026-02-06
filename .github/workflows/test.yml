@@ -1,25 +1,33 @@
 name: Tests
 
-on: [push]
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ main, develop ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11"]
+  tests:
+    name: Run unit tests
+    runs-on: ubuntu-22.04
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Deps
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install -r backend/requirements.txt
-    - name: Run tests
-      run: |
-        export PYTHONPATH=$(pwd)/backend 
-        python -m unittest discover tests/
-      working-directory: backend
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: "latest"
+
+      - name: Configurer Python
+        run: uv python install
+
+      - name: Installer les dépendances
+        run: uv sync --dev
+
+      - name: Run tests
+        run: |
+          export PYTHONPATH=$(pwd)/backend
+          uv run python -m unittest discover tests/
+        working-directory: backend

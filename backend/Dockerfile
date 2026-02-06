@@ -1,14 +1,28 @@
-# Utilisation de l'image officielle Python 3.10 comme base
-FROM python:3.10
+# ---------- Builder ----------
+FROM python:3.11-slim AS builder
 
-# Définition du répertoire de travail
+WORKDIR /build
+
+RUN pip install --no-cache-dir uv
+
+COPY pyproject.toml uv.lock* ./
+
+# uv crée un .venv ici
+RUN uv sync --no-dev
+
+
+# ---------- Runtime ----------
+FROM python:3.11-slim
+
 WORKDIR /code
 
-# Copier tout le code du backend dans le conteneur
-COPY . /code/
-ENV APP_TITLE=UserAPIEnsai
-# Installation des dépendances sans mise en cache pour un build plus léger
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+# copier le venv construit
+COPY --from=builder /build/.venv /opt/venv
 
-# Commande pour démarrer l'application
+ENV PATH="/opt/venv/bin:$PATH"
+
+COPY . .
+
+ENV APP_TITLE=UserAPIEnsai
+
 CMD ["python", "main.py"]

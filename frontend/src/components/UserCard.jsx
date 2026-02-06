@@ -1,13 +1,19 @@
-import "../styles/UserCard.css";
 import PropTypes from "prop-types";
+import { Card, CardContent, Typography, Stack } from "@mui/material";
 
 function UserCard({ user }) {
   return (
-    <div className="user-card">
-      <h2>{user.username}</h2>
-      <p>ID: {user.id}</p>
-      <p>Rôles: {user.roles.join(", ")}</p>
-    </div>
+    <Card>
+      <CardContent>
+        <Stack spacing={0.5}>
+          <Typography variant="h6">{user.username}</Typography>
+
+          <Typography color="text.secondary">ID : {user.id}</Typography>
+
+          <Typography>Rôles : {user.roles.join(", ")}</Typography>
+        </Stack>
+      </CardContent>
+    </Card>
   );
 }
 

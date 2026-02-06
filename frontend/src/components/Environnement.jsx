@@ -1,12 +1,20 @@
+import { Paper, Typography, Stack } from "@mui/material";
+
 const Environnement = () => {
-  const environnement = import.meta.env.VITE_ENVIRONNEMENT || "local";
-  const apiUrl = import.meta.env.VITE_API_URL || "localhost:8000";
+  const environnement = import.meta.env.VITE_ENVIRONNEMENT;
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   return (
-    <div>
-      <div>
-        Environnement de déploiement : {environnement}, url d'api : {apiUrl}
-      </div>
-    </div>
+    <Paper sx={{ p: 4 }}>
+      <Stack spacing={1}>
+        <Typography>
+          {"Environnement de déploiement :"} {environnement}
+        </Typography>
+        <Typography>
+          {"URL d'API : "} {apiUrl}
+        </Typography>
+      </Stack>
+    </Paper>
   );
 };
 

@@ -1,8 +1,8 @@
-from typing import List, Optional
+from typing import Optional
 
 
 class User:
-    def __init__(self, id: Optional[str], username: str, roles: Optional[List[str]]):
+    def __init__(self, id: Optional[str], username: str, roles: Optional[list[str]]):
         self.id = id
         self.username = username
         self.roles = roles

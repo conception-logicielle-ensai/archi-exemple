@@ -6,12 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "format:check": "prettier --check .",
-    "format": "prettier --write ."
+    "format:check": "prettier . --check",
+    "format:write": "prettier . --write",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
     "axios": "^1.7.9",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
