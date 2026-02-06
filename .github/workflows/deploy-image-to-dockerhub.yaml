@@ -1,4 +1,4 @@
-#name: Dockerize
+name: Push image on DockerHub
 
 on: push
 
