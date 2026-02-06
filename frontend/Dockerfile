@@ -11,4 +11,4 @@ RUN npm install
 
 # Copie du reste du code source
 COPY . .
-ENTRYPOINT ["npm", "run", "dev", "--", "--host=0.0.0.0", "--port", "80"]
+ENTRYPOINT ["npm", "run", "dev", "--", "--host=0.0.0.0", "--port", "5173"]
