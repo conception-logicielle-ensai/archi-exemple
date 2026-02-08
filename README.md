@@ -52,3 +52,21 @@ L’application web sera accessible à :
 - `http://localhost:8080`
 
 > L'option -e permet de définir des variable d'environnement au lancement d'une image docker
+
+## Travailler en local avec Docker Compose
+
+Vous pouvez lancer l'application en local directement avec la commande : 
+```sh
+sudo docker compose up
+```
+
+Vous pouvez également travailler en lançant certains modules : 
+- Pour travailler sur l'UI:
+```sh
+sudo docker compose up db backend
+```
+
+- Pour travailler sur l'API:
+```sh
+sudo docker compose up db
+```
